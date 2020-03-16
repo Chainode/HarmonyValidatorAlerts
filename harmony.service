@@ -1,0 +1,17 @@
+
+[Unit]
+Description=Harmony daemon
+After=network-online.target
+
+[Service]
+WorkingDirectory=/home/<your user under which node.sh is placed>/
+ExecStart=/home/<your user under which node.sh is placed>/node.sh  -p <name of the file containing the bls key passphrase>
+RestartSec=3
+Restart=always
+
+
+StandardOutput=file:/var/log/hmn/hmn.log
+StandardError=file:/var/log/hmn/hmn_error.log
+
+[Install]
+WantedBy=multi-user.target
